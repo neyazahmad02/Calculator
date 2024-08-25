@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.wrapper{
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 1500px;
+  display: grid;
+  place-content: center;
+  background-color: rgb(82, 7, 232);
+}
+body {
+    font-family: Arial, sans-serif; 
+}
+
+.calculator {
+    width: 270px;
+    height: 370px;
+    margin: 50px auto;
+    /* border: 1px solid #ccc; */
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: grid;
+    place-content: center;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(5,1fr);
+    background-color: rgb(46, 42, 42);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+   
+}
+
+.calculator input[type="button"] {
+    width: 40px;
+    /* height: 30px; */
+    margin: 2px;
+    font-size: 15px;
+    border: 1px solid  rgb(46, 42, 42);
+    border-radius: 10%;
+    cursor: pointer;
+    color:white;
+    background-color: rgb(46, 42, 42);
+    box-shadow: 2px 2px 10px 2px rgb(57, 54, 54)
+}
+
+.calculator input[type="text"] {
+    /* width: 100%; */
+    margin-bottom: 10px;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 30px;
+    text-align: right;
+   
+}
+#display{
+  height: 60px;
+  width: 220px;
+  padding: 1px;
+  margin-left: 5px;
+  grid-column-start: 1;
+  grid-column-end: 5;
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(40, 38, 38, 0.3) 0px 18px 36px -18px inset;
+  color: rgb(251, 248, 248);
+  background-color: rgb(46, 42, 42);
+  /* border: 1px solid rgb(249, 249, 249); */
+
+}
+#CA{
+  width: 90%;
+  height: 30px;
+  color: rgb(228, 230, 240);
+  font-weight: bold;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  background-color: rgb(205, 18, 18);
+  border-radius: 8px;
+}
+
+#CAC{
+  height: 92px;
+  width: 40;
+  border-radius: 5px;
+  background-color: forestgreen;
+  grid-column-start: 4;
+  grid-row-start: 4;
+  grid-row-end: 6;
+
+  
+}
+#CAB{
+  color: wheat;
+  background-color: rgba(5, 84, 232, 0.994);
+}
+#button{
+  height: 30px;
+  width: 40px;
+}
+.box9{
+ font-size: 1.8rem;
+ color: white;
+ text-shadow: 3px 3px 20px  white;
+}
+
+    </style>
+
+    </head>
+</html>
+<body> 
+    <div class="wrapper">
+        <!-- <div class="box9"> Created By Neyaz.....</div> -->
+        
+    <div class="calculator">
+        <input type="text" id="display" disabled>
+        <input type="button" id="CA" value="Clear" onclick="clearDisplay()">
+        <input type="button" id="button" value="/" onclick="addToDisplay('/')">
+        <input type="button"  id="button" value="*" onclick="addToDisplay('*')">
+        <input type="button" id="button" value="8" onclick="addToDisplay('8')">
+        <input type="button" id="button" value="9" onclick="addToDisplay('9')">
+        <input type="button" id="button" value="7" onclick="addToDisplay('7')">
+        <input type="button" id="button" value="-" onclick="addToDisplay('-')">
+        <input type="button" id="button" value="5" onclick="addToDisplay('5')">
+        <input type="button" id="button" value="6" onclick="addToDisplay('6')">
+        <input type="button" id="button" value="4" onclick="addToDisplay('4')">
+        <input type="button" id="button" value="1" onclick="addToDisplay('1')">
+        <input type="button" id="button" value="2" onclick="addToDisplay('2')">
+        <input type="button" id="button" value="3" onclick="addToDisplay('3')">
+       
+        
+        <input type="button" id="button" value="0" onclick="addToDisplay('0')">
+        <input type="button" id="button" value="%" onclick="addToDisplay()">
+        <input type="button" id="button" value="." onclick="addToDisplay('.')">
+        <input type="button" id="CAC" value="+" onclick="addToDisplay('+')">
+        <input type="button" id="CAB" value="=" onclick="calculate()">
+    
+        
+    </div>
+</div>
+    
+
+    <script  >
+    
+    function addToDisplay(value) {
+    document.getElementById('display').value += value;
+}
+
+function clearDisplay() {
+    document.getElementById('display').value = '';
+}
+
+function calculate() {
+    var expression = document.getElementById('display').value;
+    var result = eval(expression);
+    document.getElementById('display').value = result;
+}
+    </script>
+</body>
+</html>
